@@ -15,7 +15,9 @@ class CreateKategoriDokumensTable extends Migration
     {
         Schema::create('kategori_dokumen', function (Blueprint $table) {
             $table->increments('id_kategori');
+            $table->integer('user_id')->unsigned()->nullable();
             $table->string('name');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -87,9 +87,23 @@
                 <ul class="list-group list-group-unbordered mb-2">
                   <li class="list-group-item">
                     <b>Jumlah Dokumen</b> <a class="float-right">{{ $dokumen }}</a>
+                    <br>
+                      <ul>
+                      @foreach($katdokumen as $k)
+                      <span>{{$k->name}} <a class="float-right">{{$k->dokumen->where('type', "pribadi")->count()}}</a></span>
+                      <br>
+                      @endforeach
+                      </ul>
                   </li>
                   <li class="list-group-item">
-                    <b>Jumlah Album</b> <a class="float-right">{{ $album </a>
+                    <b>Jumlah Album</b> <a class="float-right">{{ $album }}</a>
+                    <br>
+                    <ul>
+                    @foreach($katalbum as $k)
+                      <span>{{$k->name}} <a class="float-right">{{$k->album->where('type', "pribadi")->count()}}</a></span>
+                      <br>
+                    @endforeach
+                    </ul>
                   </li>
                   <li class="list-group-item">
                     <b>Jumlah Diari</b> <a class="float-right">{{ $diari }}</a>

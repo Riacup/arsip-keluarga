@@ -10,8 +10,12 @@ class KategoriDokumen extends Model
 
     protected $primaryKey = 'id_kategori';
 
-    public function kategori_dokumen()
+    public function dokumen()
     {
-        return $this->hasMany('App\KategoriDokumen', 'kategori_id');
+        return $this->hasMany('App\Dokumen', 'kategori_id');
+    }
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id');
     }
 }

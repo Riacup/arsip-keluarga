@@ -10,8 +10,12 @@ class KategoriAlbum extends Model
 
     protected $primaryKey = 'id_kategori';
 
-    public function kategori_album()
+    public function album()
     {
-        return $this->hasMany('App\KategoriAlbum', 'kategori_id');
+        return $this->hasMany('App\Album', 'kategori_id');
+    }
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id');
     }
 }

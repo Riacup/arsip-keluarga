@@ -7,6 +7,8 @@ use App\User;
 use App\Dokumen;
 use App\Album;
 use App\Diari;
+use App\KategoriDokumen;
+use App\KategoriAlbum;
 
 class PenggunaController extends Controller
 {
@@ -64,8 +66,10 @@ class PenggunaController extends Controller
         $dokumen = Dokumen::where('user_id',$id)->where('type', 'pribadi')->count();
         $album = Album::where('user_id',$id)->where('type', 'pribadi')->count();
         $diari = Diari::where('user_id',$id)->count();
+        $katdokumen = KategoriDokumen::with('dokumen')->where('user_id',$id)->get();
+        $katalbum = KategoriAlbum::with('album')->where('user_id',$id)->get();
 
-        return view('dashboard_admin.detail_pengguna', compact('data', 'dokumen', 'album', 'diari'));
+        return view('dashboard_admin.detail_pengguna', compact('data', 'dokumen', 'album', 'diari', 'katdokumen', 'katalbum'));
     }
 
  

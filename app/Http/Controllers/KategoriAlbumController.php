@@ -44,10 +44,12 @@ class KategoriAlbumController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->input('name');  
+        $name = $request->input('name');
+        $user_id = $request->input('user_id');  
 
         $data = new \App\KategoriAlbum();
         $data->name = $name;
+        $data->user_id = $user_id;
 
         if($data->save()){
             $res['status'] = "Success!";

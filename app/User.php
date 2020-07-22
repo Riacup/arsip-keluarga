@@ -60,6 +60,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Album', 'user_id');
     }
 
+    public function katdokumen()
+    {
+        return $this->hasMany('App\KategoriDokumen', 'user_id');
+    }
+
+    public function katalbum()
+    {
+        return $this->hasMany('App\KategoriAlbum', 'user_id');
+    }
+
     public function diari()
     {
         return $this->hasMany('App\Diari', 'user_id');
